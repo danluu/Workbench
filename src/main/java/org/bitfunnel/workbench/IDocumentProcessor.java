@@ -29,7 +29,7 @@ package org.bitfunnel.workbench;
  */
 public interface IDocumentProcessor {
   public void openDocumentSet();
-  public void openDocument();
+  public void openDocument(Long documentId);
   public void openStream(String name);
   public void term(String term);
   public void closeStream();

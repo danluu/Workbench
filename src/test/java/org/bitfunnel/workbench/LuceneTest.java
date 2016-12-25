@@ -108,8 +108,8 @@ public class LuceneTest
         }
 
         @Override
-        public void openDocument() {
-            // System.out.println("openDocument");
+        public void openDocument(Long documentId) {
+            System.out.println("openDocument " + documentId);
             currentDocument.clear();
         }
 

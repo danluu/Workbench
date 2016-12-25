@@ -54,12 +54,21 @@ public class CorpusFile {
 
   void processDocument(IDocumentProcessor processor) {
     // Read document Id.
+    Long docId = 0L;
     for (int i = 0; i < 16; ++i) {
-      // TODO: save documentId somehow.
-      get();
+      docId = docId << 4;
+
+      int byteValue = get();
+      if (byteValue >= '0' && byteValue <= '9') {
+        docId |= (byteValue - '0');
+      } else if (byteValue >= 'a' && byteValue <= 'f') {
+        docId |= 10 + (byteValue - 'a');
+      } else {
+        // TODO: throw error.
+      }
     }
     consume(0);
-    processor.openDocument();
+    processor.openDocument(docId);
     while (peek() != 0)
     {
       processStream(processor);

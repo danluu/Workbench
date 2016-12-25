@@ -130,7 +130,7 @@ public class CorpusTest
     }
 
     @Override
-    public void openDocument() {
+    public void openDocument(Long documentId) {
     }
 
     @Override
