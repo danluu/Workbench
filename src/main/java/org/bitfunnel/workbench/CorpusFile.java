@@ -53,6 +53,12 @@ public class CorpusFile {
 
 
   void processDocument(IDocumentProcessor processor) {
+    // Read document Id.
+    for (int i = 0; i < 16; ++i) {
+      // TODO: save documentId somehow.
+      get();
+    }
+    consume(0);
     processor.openDocument();
     while (peek() != 0)
     {
